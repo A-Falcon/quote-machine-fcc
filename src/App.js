@@ -1,5 +1,8 @@
-import * as React from "https://cdn.skypack.dev/react@17.0.1";
-import * as ReactDOM from "https://cdn.skypack.dev/react-dom@17.0.1";
+import  React from "https://cdn.skypack.dev/react@17.0.1";
+// import ReactDOM from "https://cdn.skypack.dev/react-dom@17.0.1";
+// import styled from 'styled-components'
+
+import QuoteBox from './components/quoteBox'
 
 const quoteData = [
   {text: 'Heroes never die!', author: '- Mercy'},
@@ -10,30 +13,6 @@ const quoteData = [
   {text: 'Nerf this!', author: '- D.va'},
 ]
 
-const QuoteBox = ({quote, handleNewQuote}) => (
-
-    <div id="quote-box">
-    <p id='text'>{quote.text}</p>
-    <p id='author'>{quote.author}</p>
-    <div class='actions'>
-      <button 
-        id='new-quote'
-        class='button'
-        onClick={handleNewQuote}
-        >
-        New Quote
-      </button>
-      <a 
-        href="twitter.com/intent/tweet"
-        id="tweet-quote"
-        target="_blank"
-        >
-        Tweet
-      </a>
-    </div>
-  </div>
-
-)
 
 const getRandomIndex = () => 
   Math.round(Math.random() * ((quoteData.length-1) -0) + 0)
@@ -46,10 +25,12 @@ const App = () => {
   }
   
   return(
-  <div class="main">
+  <div className='app'>
   <QuoteBox  quote={quote} handleNewQuote={handleNewQuote}/>
 </div>)
 }
 
+export default App
+// ReactDOM.render(<App />, document.querySelector('#root'))
 
-ReactDOM.render(<App />, document.querySelector('#app'))
+
